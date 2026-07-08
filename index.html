@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fajr Automotive</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #EDE7D9;
+        }
+
+        /* ─── NAVBAR ─── */
+        .navbar {
+            background: #F2ECE2;
+            padding: 10px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 38px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 13.5px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav ul li a:hover { color: #1B3828; }
+
+        .btn-nav-book {
+            background: #1B3828;
+            color: #fff;
+            padding: 11px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            letter-spacing: 0.3px;
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            position: relative;
+            height: 530px;
+            overflow: hidden;
+            background: #EDE7D9;
+        }
+
+        /* Dark green panel */
+        .hero-bg-dark {
+            position: absolute;
+            inset: 0;
+            background: #1B3828;
+            clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 38% 100%);
+            z-index: 1;
+        }
+
+        /* Car image — blended so dark background vanishes into green panel */
+        .hero-car-img {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            height: 92%;
+            width: auto;
+            z-index: 4;
+            object-fit: contain;
+            object-position: right bottom;
+            mix-blend-mode: lighten;
+            filter: contrast(1.15) saturate(1.2) brightness(1.05);
+        }
+
+        /* Gold diagonal stripe — steep slant matching dark panel edge */
+        .hero-gold-stripe {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, #D4A835 0%, #A07825 100%);
+            clip-path: polygon(46.5% 0%, 50% 0%, 35% 100%, 38% 100%);
+            z-index: 2;
+        }
+
+        /* Left text content */
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 60px;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .hero-welcome {
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            color: #666;
+            margin-bottom: 14px;
+        }
+
+        .hero-heading { line-height: 1.05; }
+
+        .hero-heading .dawn {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 400;
+            color: #1a1a1a;
+        }
+
+        .hero-heading .automotive {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            font-weight: 700;
+            color: #1B3828;
+        }
+
+        .hero-heading .excellence {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            font-weight: 700;
+            font-style: italic;
+            color: #C49225;
+        }
+
+        .hero-desc {
+            margin-top: 18px;
+            font-size: 13px;
+            color: #555;
+            line-height: 1.75;
+        }
+
+        .hero-buttons {
+            margin-top: 28px;
+            display: flex;
+            gap: 14px;
+            align-items: center;
+        }
+
+        .btn-services {
+            background: #1B3828;
+            color: #fff;
+            padding: 12px 26px;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+        }
+
+        .btn-book-hero {
+            background: transparent;
+            color: #333;
+            padding: 11px 22px;
+            border: 1.5px solid #888;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+        }
+
+
+        /* ─── FOOTER BAR ─── */
+        .footer-bar {
+            background: #0C1E14;
+            padding: 18px 80px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .footer-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: #fff;
+        }
+
+        .footer-icon-wrap {
+            width: 38px;
+            height: 38px;
+            border: 1px solid #2E5040;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            flex-shrink: 0;
+        }
+
+        .footer-item-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: #ddd;
+        }
+
+        .footer-sep {
+            width: 1px;
+            height: 40px;
+            background: #2A4A38;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<header class="navbar">
+
+    <!-- Logo -->
+    <div class="logo-wrapper">
+        <img src="logo.jpeg" alt="Fajr Automotive Logo" style="height: 110px; width: auto; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
+    </div>
+
+    <!-- Nav links -->
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <button class="btn-nav-book">Book Appointment</button>
+</header>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+    <div class="hero-bg-dark"></div>
+    <div class="hero-gold-stripe"></div>
+
+    <!-- Text content -->
+    <div class="hero-content">
+        <p class="hero-welcome">WELCOME TO FAJR AUTOMOTIVE</p>
+        <h1 class="hero-heading">
+            <span class="dawn">The Dawn of</span>
+            <span class="automotive">Automotive</span>
+            <span class="excellence">Excellence</span>
+        </h1>
+        <p class="hero-desc">
+            Precision. Performance. Perfection.<br>
+            Your trusted partner for premium<br>
+            automotive care in Qatar.
+        </p>
+        <div class="hero-buttons">
+            <button class="btn-services">Our Services</button>
+            <button class="btn-book-hero">Book Appointment</button>
+        </div>
+    </div>
+
+
+    <img class="hero-car-img" src="bwm.jpeg" alt="BMW">
+
+</section>
+
+<!-- ═══════════════ FOOTER BAR ═══════════════ -->
+<div class="footer-bar">
+
+    <div class="footer-item">
+        <div class="footer-icon-wrap">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07
+                         A19.5 19.5 0 015.13 12.72 19.79 19.79 0 012.06 4.11
+                         A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81
+                         a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27
+                         a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+        </div>
+        <span class="footer-item-text" style="display:flex; flex-direction:column; line-height:1.6;">
+            <span>+974 3141 1221</span>
+            <span>+974 3151 1221</span>
+        </span>
+    </div>
+
+    <div class="footer-sep"></div>
+
+    <div class="footer-item">
+        <div class="footer-icon-wrap">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4
+                         c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+            </svg>
+        </div>
+        <span class="footer-item-text">info@fajrautomotive.com</span>
+    </div>
+
+    <div class="footer-sep"></div>
+
+    <div class="footer-item">
+        <div class="footer-icon-wrap">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+            </svg>
+        </div>
+        <span class="footer-item-text">Street 3007, Birkat Al Awamer Qatar</span>
+    </div>
+
+</div>
+
+</body>
+</html>
