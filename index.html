@@ -221,6 +221,178 @@
             height: 40px;
             background: #2A4A38;
         }
+
+        /* ─── RESPONSIVE STYLES ─── */
+        .logo-wrapper img {
+            max-width: 100%;
+            height: 90px;
+            width: auto;
+            image-rendering: auto;
+            display: block;
+        }
+
+        .hero-car-img {
+            max-width: 100%;
+            height: auto;
+            right: 0;
+            bottom: 0;
+            object-fit: cover;
+            mix-blend-mode: normal;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .navbar {
+                padding: 12px 30px;
+            }
+
+            nav ul {
+                gap: 24px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                height: auto;
+                min-height: 560px;
+            }
+
+            .hero-content {
+                left: 40px;
+                right: 40px;
+                max-width: 520px;
+            }
+
+            .hero-heading .dawn,
+            .hero-heading .automotive,
+            .hero-heading .excellence {
+                font-size: 46px;
+            }
+
+            .hero-desc {
+                font-size: 14px;
+            }
+
+            .hero-buttons {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 16px 20px;
+                gap: 14px;
+            }
+
+            .btn-nav-book {
+                align-self: stretch;
+                width: 100%;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 14px;
+            }
+
+            .hero {
+                min-height: 720px;
+                padding-bottom: 20px;
+            }
+
+            .hero-bg-dark {
+                clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 0% 100%);
+            }
+
+            .hero-gold-stripe {
+                clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+                opacity: 0.2;
+            }
+
+            .hero-content {
+                left: 20px;
+                right: 20px;
+                max-width: none;
+                top: 24%;
+            }
+
+            .hero-heading .dawn {
+                font-size: 32px;
+            }
+
+            .hero-heading .automotive,
+            .hero-heading .excellence {
+                font-size: 38px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .btn-services,
+            .btn-book-hero {
+                width: 100%;
+            }
+
+            .footer-bar {
+                flex-direction: column;
+                gap: 18px;
+                padding: 24px 20px;
+                align-items: stretch;
+            }
+
+            .footer-sep {
+                width: 100%;
+                height: 1px;
+                background: #2A4A38;
+            }
+
+            .footer-item {
+                justify-content: flex-start;
+                gap: 12px;
+            }
+
+            .footer-item-text {
+                font-size: 12px;
+            }
+        }
+
+        @media screen and (max-width: 540px) {
+            .navbar {
+                padding: 16px 14px;
+            }
+
+            .hero {
+                min-height: 700px;
+            }
+
+            .hero-content {
+                left: 16px;
+                right: 16px;
+            }
+
+            .hero-heading .dawn {
+                font-size: 26px;
+            }
+
+            .hero-heading .automotive,
+            .hero-heading .excellence {
+                font-size: 30px;
+            }
+
+            .hero-desc {
+                font-size: 13px;
+            }
+
+            .btn-nav-book,
+            .btn-services,
+            .btn-book-hero {
+                padding: 12px 18px;
+                font-size: 13px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -230,7 +402,7 @@
 
     <!-- Logo -->
     <div class="logo-wrapper">
-        <img src="logo.jpeg" alt="Fajr Automotive Logo" style="height: 110px; width: auto; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
+        <img src="logo.jpg" alt="Fajr Automotive Logo" style="height: 110px; width: auto; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
     </div>
 
     <!-- Nav links -->
